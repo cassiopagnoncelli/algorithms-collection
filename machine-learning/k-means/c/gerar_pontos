@@ -1,0 +1,34 @@
+#!/bin/bash
+
+cat > .gerar_pontos.R <<EOF
+# source('file.R')
+
+# OS DADOS AINDA DEVEM(DEVERIAM) SER NORMALIZADOS, COMO NAO TEMOS
+# ESSE PROCESSO, VAMOS GERAR OS VALORES ALEATORIOS SOB HOMOCEDASTICIDADE
+
+# centróides a priori
+dp = 5
+centroide1.x = 30
+centroide1.y = 23
+centroide2.x = 70
+centroide2.y = 65
+
+# gera os pontos
+c1.x <- c(); c1.y <- c()
+c2.x <- c(); c2.y <- c()
+for (i in 1:50) {
+  c1.x[i] <- rnorm(1, centroide1.x, dp)
+  c1.y[i] <- rnorm(1, centroide1.y, dp)
+  c2.x[i] <- rnorm(1, centroide2.x, dp)
+  c2.y[i] <- rnorm(1, centroide2.y, dp)
+}
+
+# imprime os pontos
+for (i in 1:50) {
+  print(c(c1.x[i], c1.y[i]))
+  print(c(c2.x[i], c2.y[i]))
+}
+EOF
+
+R < .gerar_pontos.R --no-save | grep "^\[1\] *\.* *\.*" | sed "s/\[1\] //1" > PONTOS || true
+if [ -e .gerar_pontos.R ]; then rm .gerar_pontos.R; fi
