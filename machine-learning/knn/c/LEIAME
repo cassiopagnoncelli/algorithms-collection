@@ -1,0 +1,109 @@
+CONTEÚDO
+--------
+
+  Esta é uma implementação do algoritmo de classificação k-NN, k-Nearest
+  Neighbor, como primeiro trabalho da disciplina de Tópicos em Aprendizado
+  de Máquina, ministrada pelo prof. Dr. Luis Eduardo S. Oliveira no segundo
+  semestre de 2011 na Universidade Federal do Paraná.
+
+
+RELATÓRIO
+---------
+
+  Caminho para o relatório pré-compilado:
+
+     ./relatorio/relatorio.dvi
+
+
+COMPILAÇÃO
+----------
+
+  Use a ferramente `make' para compilação. Uma chamada sem parâmetros é
+  suficiente para gerar o executável `knn'. Duas regras são definidas:
+
+  all
+    Gera os executáveis `knn' e `otimizador' sob o diretório `bin'.
+
+  knn_main
+    Gera apenas o executável `knn' sob o diretório `bin'.
+
+  otimizador
+    Gera apenas o executável `otimizador' sob o diretório `bin'.
+
+  clean
+    Remove o executável `knn' e quaisquer outros arquivos gerados após a
+    a compilação.
+
+  Por exemplo,
+  $ make all   # gera o `knn' e o `otimizador';
+  $ make clean # remove `knn'.
+
+
+USO
+---
+
+  Conforme o especificado. Tem como requisitos 4 parâmetros, dentre os quais
+  o último é opcional, nesta ordem:
+  (1) "training": um arquivo contendo a base de treinamento, no formato
+                  do exemplo `training.gz';
+  (2) "testing":  um arquivo contendo a base de teste, no mesmo formato do
+                  exemplo `testing.gz';
+  (3)    k:       parâmetro de corte; um particular ponto é classificado como
+                  pertencente à uma classe segundo a classe mais frequente
+                  dentre os `k' pontos mais próximos do ponto em questão;
+  (4) "--normalizar": determina que os dados devem ser normalizados, para cada
+                      característica.
+
+  Assim, um exemplo de chamada seria
+
+    ./knn training testing 3 --normalizar
+
+  onde `training' e `testing' são os arquivos, auto-descritivos, `3' é o
+  parâmetro `k' e `--normalizar' determina que os dados devem ser normalizados.
+
+  Uma pequena particularidade é o cálculo da distância. Dependendo da natureza
+  dos dados, uma abordagem para cálculo da distância entre dois pontos
+  quaisquer pode ser melhor do que outra, e nem sempre a distância euclidiana é
+  a mais adequada. Por isso, outros métodos para cálculo de distância estão
+  disponíveis; a saber,
+  - distância Manhattan;
+  - distância Chebyschev;
+  - distância Minkowski [paramétrica] (uma generalização das distâncias
+    Manhattan, Chebyschev e euclidiana);
+  - distância euclidiana.
+  
+  Como o cálculo de distância é uma função crítica, sendo executada por todas
+  as combinações dois a dois de pontos, a escolha da distância deve ser
+  especificada em tempo de compilação, via Makefile. Para isso, as primeiras
+  linhas do Makefile são dedicadas à escolha do cálculo de distância, bastando
+  descomentar (basta remover o prefixo `#') a linha que contém o método
+  escolhido e deixar comentadas (mantendo o prefixo `#') as linhas dos demais
+  métodos.
+
+
+OTIMIZADOR
+----------
+
+  O otimizador é faz uma busca cega (também cunhado de "força bruta") sobre os
+  valores possíveis de `k' (naturais ímpares), gerando um histograma da taxa de
+  acerto contra os valores de `k' e imprimindo, na última linha da execução, o
+  valor ótimo de `k'. Ao passo que um novo valor máximo de `k' vai é
+  encontrado, o mesmo é reportado na saída padrão. Além disso, essa busca pode
+  ser sobre dados normalizados ou não-normalizados.
+
+
+BUGS E NOTAS ADICIONAIS
+-----------------------
+
+  Nenhum bug encontrado. 
+
+  Atente ao fato de que o formato dos arquivos deve ser conforme o
+  especificado. As classes dos pontos devem ser números naturais contíguos,
+  como nos exemplos `training' e `testing'.
+
+
+ALUNO
+-----
+
+   Cássio Jandir Pagnoncelli, cjp07 (em) inf.ufpr.br, GRR20071101.
+
