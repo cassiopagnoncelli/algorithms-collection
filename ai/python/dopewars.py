@@ -217,4 +217,4 @@ drugs_list = {
 # print "Best average balance %s found with params" % locale.format("%d", int(exp(current_val)), grouping=True)
 # print "sell=%.2f   buy=%.2f   qty=%d" % (best_sell, best_buy, best_qty)
 
-Player(Game(), True).start_game(False)
+Player(Game(), True).start_game(True)
