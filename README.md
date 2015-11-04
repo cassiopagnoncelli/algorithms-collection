@@ -2,11 +2,13 @@
 
 This repository holds a hand of algorithms in a number of fields:
 
+* Artificial intelligence
+
 * Automata theory
 
-* Computer Science fundamentals and techniques
-
 * Combinatorics
+
+* Computer Science fundamentals and techniques
 
 * Data structures
 
@@ -20,4 +22,4 @@ This repository holds a hand of algorithms in a number of fields:
 
 The majority of languages used here are C/C++, Python, R, and Ruby.
 
-Feel free to explore the repo and I encourage you to notify me if you find any bug.
+I encourage you to notify me should you find a bug.
