@@ -24,7 +24,7 @@ via_aerea(e, j, 3).
 via_aerea(e, m, 87).
 via_aerea(j, m, 9).
 
-% CAMINHO eh o menor caminho do vertice A ate o vertice B
+% CAMINHO é o menor caminho do vertice A até o vertice B
 caminho(A, B, CAMINHO) :-
 	aeroporto_de(A, AEROA),
 	aeroporto_de(B, AEROB),
@@ -32,15 +32,15 @@ caminho(A, B, CAMINHO) :-
 	menor_caminho(AEROB, B, C2),
 	append(C1, C2, CAMINHO).
 
-% AV eh o aeroporto da componente conexa que contem o vertice V que leva a X
+% AV é o aeroporto da componente conexa que contém o vértice V que leva a X
 aeroporto_de(V, X, AV) :-
 	comp_conexa(V, CV).
-	% busca um elem de CV que casa com via_area(A, B)
+	% busca um elemento de CV que casa com via_area(A, B)
 
 menor_caminho(A, B, C).
 
 %% OPERACOES ELEMENTARES COM CONJUNTOS
-% D eh a diferenca dos conjuntos A e B, i.e., A \ B = D
+% D é a diferenca dos conjuntos A e B, i.e., A \ B = D
 diferenca([], _, []).
 diferenca([X | A], B, [X | D]) :- not(membro(X, B)), diferenca(A, B, D).
 diferenca([_ | A], B, D) :- diferenca(A, B, D).
