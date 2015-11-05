@@ -53,7 +53,7 @@ vizinhanca(X, V) :-
 	append(L1, L2, L),
 	list_to_set(L, V).
 
-% CC eh a componente conexa que contem o vertice X
+% CC é a componente conexa que contém o vértice X
 comp_conexa(X, [K,K2|CC]) :- 
 	comp_conexa(X, [K2,CC]), 
 	vizinhanca(X, VX). 
