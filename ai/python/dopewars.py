@@ -47,7 +47,7 @@ class Game(object):
     return dict([ tuple([drug, drugs_list[drug].current_price()]) for drug in selected ])
 
 class Player(object):
-  def __init__(self, game, reporting=False, initial_debt=5500, debt_interest=0.1, balance=2000, capacity=100):
+  def __init__(self, game, reporting=True, initial_debt=5500, debt_interest=0.1, balance=2000, capacity=100):
     self.game = game
     self.reporting = reporting
     self.debt = initial_debt
@@ -217,4 +217,4 @@ drugs_list = {
 # print "Best average balance %s found with params" % locale.format("%d", int(exp(current_val)), grouping=True)
 # print "sell=%.2f   buy=%.2f   qty=%d" % (best_sell, best_buy, best_qty)
 
-Player(Game(), True).start_game(True)
+Player(Game()).start_game(False)
