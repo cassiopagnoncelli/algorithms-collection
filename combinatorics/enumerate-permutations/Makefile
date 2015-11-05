@@ -1,4 +1,4 @@
-CFLAGS ?= -ansi
+CFLAGS ?= -ansi -Wall
 
 list-permutations: list-permutations.c
 
