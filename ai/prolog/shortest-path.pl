@@ -46,7 +46,7 @@ diferenca([X | A], B, [X | D]) :- not(membro(X, B)), diferenca(A, B, D).
 diferenca([_ | A], B, D) :- diferenca(A, B, D).
 
 %% OPERACOES ELEMENTARES COM GRAFOS
-% V eh a vizinhanca de X
+% V é a vizinhança de X
 vizinhanca(X, V) :-
 	findall(A, via_terrestre(A, X, _), L1),
 	findall(B, via_terrestre(X, B, _), L2),
