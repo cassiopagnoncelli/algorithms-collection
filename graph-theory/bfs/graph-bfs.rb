@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 class Node
   attr_accessor :name
   attr_accessor :marked
