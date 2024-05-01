@@ -2,7 +2,7 @@
 
 This repository holds a hand of algorithms in a number of fields:
 
-* Artificial intelligence
+* Non AGI AI
 
 * Automata theory
 
@@ -22,4 +22,3 @@ This repository holds a hand of algorithms in a number of fields:
 
 The majority of languages used here are C/C++, Python, R, and Ruby.
 
-I encourage you to notify me should you find a bug.
